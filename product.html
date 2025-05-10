@@ -1,0 +1,67 @@
+<!-- product.html (Product Detail Page) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Resale - Product Details</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin:0; padding:20px; }
+    .product-container { max-width:800px; margin:auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    .product-image { width:100%; max-height:400px; object-fit:cover; border-radius:4px; }
+    .product-info { margin-top:20px; }
+    .product-info h2 { margin-bottom:10px; }
+    .price { font-size:20px; color:#28a745; margin:10px 0; }
+    .description { margin:10px 0; }
+    .expandable { cursor:pointer; color:#007bff; }
+    .seller-details, .contact-info { margin:20px 0; padding:15px; background:#f9f9f9; border-radius:4px; }
+    .buttons { text-align:right; margin-top:20px; }
+    .btn { padding:12px 24px; border:none; border-radius:4px; cursor:pointer; margin-left:10px; }
+    .btn-buy { background:#007bff; color:#fff; }
+    .btn-cart { background:#ffc107; color:#000; }
+  </style>
+</head>
+<body>
+  <div class="product-container">
+    <img src="placeholder.jpg" alt="Medicine Image" class="product-image" />
+    <div class="product-info">
+      <h2>Medicine Name</h2>
+      <p class="price">$10.00</p>
+      <p class="description" id="desc">Short description of the medicine. <span class="expandable" id="toggleDesc">Read more...</span></p>
+      <div class="full-desc" id="fullDesc" style="display:none;">
+        <p>Detailed information about the medicine, its uses, dosage, storage instructions, and other relevant details.</p>
+      </div>
+    </div>
+    <div class="seller-details">
+      <h3>Seller Details</h3>
+      <p>Name: John Doe</p>
+      <p>Rating: 4.8/5</p>
+    </div>
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p>Email: seller@example.com</p>
+      <p>Phone: +1-234-567-8901</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-cart" id="addCart">Add to Cart</button>
+      <button class="btn btn-buy" id="buyNow">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('toggleDesc').addEventListener('click', function() {
+      var full = document.getElementById('fullDesc');
+      full.style.display = full.style.display === 'none' ? 'block' : 'none';
+      this.textContent = full.style.display === 'none' ? 'Read more...' : 'Read less';
+    });
+    document.getElementById('buyNow').addEventListener('click', function() {
+      // TODO: Pass product details to checkout page via query params or state
+      window.location.href = 'checkout.html';
+    });
+    document.getElementById('addCart').addEventListener('click', function() {
+      // TODO: Add product to cart logic
+      alert('Added to cart!');
+    });
+  </script>
+</body>
+</html>

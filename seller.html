@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medicine Resale - Sell Medicine</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .form-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      animation: slideUp 0.6s ease-in-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .form-container h2 {
+      color: #2d6a4f;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .form-container label {
+      margin-top: 10px;
+      display: block;
+      font-weight: 600;
+      color: #333;
+    }
+    .form-container input, .form-container textarea, .form-container button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    .form-container textarea {
+      resize: vertical;
+    }
+    .form-container button {
+      background-color: #2d6a4f;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .form-container button:hover {
+      background-color: #1b4332;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>List Your Medicine</h2>
+    <form id="sellForm">
+      <label>Medicine Name:</label>
+      <input type="text" name="medName" required />
+
+      <label>Salt/Generic:</label>
+      <input type="text" name="medSalt" required />
+
+      <label>Quantity:</label>
+      <input type="number" name="quantity" min="1" required />
+
+      <label>Buy Date:</label>
+      <input type="date" name="buyDate" required />
+
+      <label>Expiry Date:</label>
+      <input type="date" name="expDate" required />
+
+      <label>Upload Image:</label>
+      <input type="file" name="medImage" accept="image/*" required />
+
+      <label>Description:</label>
+      <textarea name="description" rows="4" placeholder="Add details about usage, condition, etc." required></textarea>
+
+      <label>Location:</label>
+      <input type="text" name="location" placeholder="City or area" required />
+
+      <label>Contact Number:</label>
+      <input type="tel" name="contact" placeholder="Phone number" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('sellForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = e.target;
+      var data = new FormData(form);
+      console.log('Medicine Data:');
+      for(var pair of data.entries()) console.log(pair[0]+':', pair[1]);
+      alert('Form submitted! Check console for data.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
